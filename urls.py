@@ -1,17 +1,17 @@
 from django.conf.urls.defaults import *
 
-# Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
 
+application = webapp.WSGIApplication([('/', MainHandler),
+                                      ('/([0-9a-fA-F]{3}|[0-9a-fA-F]{6})/?', RGBHandler),
+                                      ('/png/([0-9a-fA-F]{3}|[0-9a-fA-F]{6})/?', PNGHandler),
+                                      ('/(.*)', NotAColorHandler)], debug=True)
+
 urlpatterns = patterns('',
-    # Example:
-    # (r'^colossalpixel/', include('colossalpixel.foo.urls')),
-
-    # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
-    # to INSTALLED_APPS to enable admin documentation:
-    # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # (r'^admin/', include(admin.site.urls)),
+    url(r'^png/(?P<rgb>[0-9a-fA-F]{3}|[0-9a-fA-F]{6})/$', 'colossalpixel.views.png', name='png'),
+    url(r'^(?P<rgb>[0-9a-fA-F]{3}|[0-9a-fA-F]{6})/$', 'colossalpixel.views.rgb', name='rgb'),
+    url(r'^$', 'colossalpixel.views.index', name='index'),
+    url(r'^(?P<rgb>.*)', 'colossalpixel.views.notacolor', name='notacolor'),
+    # url(r'^admin/', include(admin.site.urls)),
 )
