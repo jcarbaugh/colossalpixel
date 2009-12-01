@@ -18,3 +18,9 @@ def rgb(request, rgb):
 def png(request, rgb):
     png = render_png(rgb)
     return HttpResponse(png, content_type='image/png')
+
+
+    
+
+def test(request):
+    return render_to_response('colossalpixel/test.html')

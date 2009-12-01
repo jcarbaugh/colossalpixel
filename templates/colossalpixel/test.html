@@ -1,0 +1,11 @@
+{% extends "colossalpixel/base.html" %}
+
+{% block body %}rgb{% endblock %}
+
+{% block style %}
+	body { background: url({% url png "ffbb88" %}); }
+{% endblock %}
+
+{% block content %}
+	<img src="{% url png "ffbb88" %}" style="border: 1px solid #000; height: 100px; width: 100px;">
+{% endblock %}
