@@ -1,0 +1,9 @@
+{% extends "colossalpixel/base.html" %}
+
+{% block content %}
+	<form action="/" method="get">
+		<label for="rgb">#</label>
+		<input type="text" name="rgb" id="rgb">
+		<input type="submit" value="Render">
+	</form>
+{% endblock %}

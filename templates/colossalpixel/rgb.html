@@ -1,0 +1,11 @@
+{% extends "colossalpixel/base.html" %}
+
+{% block body %}rgb{% endblock %}
+
+{% block style %}
+	body { background: url(/png/{{ rgb }}/); }
+{% endblock %}
+
+{% block content %}
+	<p>It's a <a href="/png/{{ rgb }}/">PNG</a> too!</p>
+{% endblock %}
