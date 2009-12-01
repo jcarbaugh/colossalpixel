@@ -3,7 +3,7 @@ from django.conf import settings
 
 urlpatterns = patterns('colossalpixel.views',
     url(r'^(?P<rgb>[0-9a-fA-F]{3}|[0-9a-fA-F]{6}).png$', 'png', name='png'),
-    url(r'^(?P<rgb>[0-9a-fA-F]{3}|[0-9a-fA-F]{6})/$', 'rgb', name='rgb'),
+    url(r'^(?P<rgb>[0-9a-fA-F]{3}|[0-9a-fA-F]{6})/?$', 'rgb', name='rgb'),
     url(r'^$', 'index', name='index'),
 )
 
